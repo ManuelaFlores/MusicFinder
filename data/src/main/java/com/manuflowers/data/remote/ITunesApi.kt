@@ -6,8 +6,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ITunesApi {
-    @GET("/search")
-    fun getSearchResult(
+    @GET("search")
+    suspend fun getSearchResult(
         @Query("term") query: String,
         @Query("mediaType") mediaType: String,
         @Query("limit") limit: String

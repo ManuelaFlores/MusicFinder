@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Music Finder</string>
+    <string name="error_message">Something is going wrong</string>
 </resources>

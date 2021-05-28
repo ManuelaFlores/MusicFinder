@@ -6,6 +6,7 @@ import com.manuflowers.domain.utils.Error
 import com.manuflowers.domain.utils.Result
 import com.manuflowers.domain.utils.Success
 import com.squareup.moshi.JsonEncodingException
+import kotlinx.coroutines.channels.consumesAll
 import retrofit2.HttpException
 
 class SearchDataSourceImpl(
@@ -25,7 +26,7 @@ class SearchDataSourceImpl(
             if (response.isSuccessful) {
                 Success(response.body()!!)
             } else {
-                Error()
+                Error(message = "Ups")
             }
 
         } catch (e: JsonEncodingException) {
