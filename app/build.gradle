@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.manuflowers.musicfinder"
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(":domain")
+    implementation project(":data")
+
+    implementation Dependencies.kotlin
+    implementation Dependencies.android_core
+    implementation Dependencies.app_compat
+    implementation Dependencies.constraint_layout
+    androidTestImplementation Dependencies.junit_androidx
+    androidTestImplementation Dependencies.espresso_androidx
+    implementation Dependencies.material_design
+
+    implementation Dependencies.coroutines_core
+    implementation Dependencies.coroutines_android
+
+    testImplementation Dependencies.mokk
+    testImplementation Dependencies.junit
+    testImplementation Dependencies.coroutines_test
+
+    implementation Dependencies.koin_android
+    implementation Dependencies.koin_scope
+    implementation Dependencies.koin_viewmodel
+    implementation Dependencies.koin_fragment
+}
