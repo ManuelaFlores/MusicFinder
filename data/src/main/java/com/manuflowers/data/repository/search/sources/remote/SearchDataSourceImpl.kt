@@ -6,7 +6,6 @@ import com.manuflowers.domain.utils.Error
 import com.manuflowers.domain.utils.Result
 import com.manuflowers.domain.utils.Success
 import com.squareup.moshi.JsonEncodingException
-import kotlinx.coroutines.channels.consumesAll
 import retrofit2.HttpException
 
 class SearchDataSourceImpl(

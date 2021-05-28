@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/holo_purple"/>
+    <corners android:radius="10dp"/>
+    <gradient
+        android:type="linear"
+        android:angle="90"
+        android:startColor="@color/purple_500"
+        android:endColor="@android:color/holo_purple" />
+</shape>
