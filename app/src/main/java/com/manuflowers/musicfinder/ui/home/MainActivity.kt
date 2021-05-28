@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.manuflowers.musicfinder.R
+import com.manuflowers.musicfinder.ui.home.list.HomeAdapter
 import com.manuflowers.musicfinder.ui.home.model.HomeViewState
 import com.manuflowers.musicfinder.ui.home.viewModel.HomeViewModel
 import org.koin.android.ext.android.inject
@@ -13,6 +14,10 @@ import org.koin.android.ext.android.inject
 class MainActivity : AppCompatActivity() {
 
     private val homeViewModel: HomeViewModel by inject()
+
+    private val homeAdapter by lazy {
+        HomeAdapter()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
