@@ -10,6 +10,7 @@ interface ITunesApi {
     suspend fun getSearchResult(
         @Query("term") query: String,
         @Query("mediaType") mediaType: String,
+        @Query("entity") entity: String = "song",
         @Query("limit") limit: String
     ): Response<TracksResultData>
 }

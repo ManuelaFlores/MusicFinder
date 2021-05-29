@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Music Finder</string>
     <string name="error_message">Something is going wrong</string>
+    <string name="no_songs">Seems like there is no results</string>
 </resources>

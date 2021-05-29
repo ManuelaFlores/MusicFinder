@@ -10,6 +10,7 @@ import com.manuflowers.domain.utils.Success
 import com.manuflowers.musicfinder.base.BaseViewModel
 import com.manuflowers.musicfinder.base.SingleEvent
 import com.manuflowers.musicfinder.ui.home.model.HomeViewState
+import com.manuflowers.musicfinder.ui.home.model.toView
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
@@ -39,14 +40,14 @@ class HomeViewModel(
     private fun handleResult(result: Result<List<TrackEntity>>) {
         when (result) {
             is Success -> {
-                stateAsync = state.copy(
+                state = state.copy(
                     isLoading = SingleEvent(false),
-                    searchResults = result.data
+                    searchResults = result.data.map { it.toView() }
                 )
             }
             is Error -> {
                 Log.e("SEARCH_ERROR", "${result.message}")
-                stateAsync = state.copy(
+                state = state.copy(
                     isLoading = SingleEvent(false)
                 )
                 super.handleResult(result)

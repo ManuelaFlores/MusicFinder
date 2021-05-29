@@ -1,5 +1,9 @@
 package com.manuflowers.domain.search.model
 
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+
 data class TrackEntity(
     val wrapperType: String,
     val kind: String,
@@ -24,4 +28,10 @@ data class TrackEntity(
     val primaryGenreName: String,
     val longDescription: String,
     val artistViewUrl: String
-)
+) {
+    val parsedTrackDuration: String
+        get() {
+            val simpleDateFormat = SimpleDateFormat("mm:ss", Locale.getDefault())
+            return simpleDateFormat.format(Date(trackTimeMillis))
+        }
+}

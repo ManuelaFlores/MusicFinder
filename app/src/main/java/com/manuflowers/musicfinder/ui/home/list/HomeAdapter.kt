@@ -2,23 +2,25 @@ package com.manuflowers.musicfinder.ui.home.list
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.manuflowers.domain.search.model.TrackEntity
+import com.manuflowers.musicfinder.ui.home.model.TrackView
 
-class HomeAdapter : RecyclerView.Adapter<HomeViewHolder>() {
+class HomeAdapter(
+    private val onClickListener: (TrackView) -> Unit
+) : RecyclerView.Adapter<HomeViewHolder>() {
 
-    private val trackList = mutableListOf<TrackEntity>()
+    private val trackList = mutableListOf<TrackView>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         return HomeViewHolder.newInstance(parent)
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.bind(trackList[position])
+        holder.bind(trackList[position], onClickListener)
     }
 
     override fun getItemCount(): Int = trackList.size
 
-    fun setData(list: List<TrackEntity>) {
+    fun setData(list: List<TrackView>) {
         this.trackList.clear()
         trackList.addAll(list)
         notifyDataSetChanged()
