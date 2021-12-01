@@ -1,5 +1,6 @@
 package com.manuflowers.musicfinder.ui.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -13,6 +14,7 @@ import com.manuflowers.musicfinder.ui.home.list.HomeAdapter
 import com.manuflowers.musicfinder.ui.home.model.HomeViewState
 import com.manuflowers.musicfinder.ui.home.model.TrackView
 import com.manuflowers.musicfinder.ui.home.viewModel.HomeViewModel
+import com.manuflowers.musicfinder.ui.trackDetail.TrackDetailActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
@@ -35,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupSearch() {
-        searchEditText.addTextChangedListener (object : TextWatcher {
+        searchEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
@@ -51,7 +53,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onClickListener(trackView: TrackView) {
-        // TODO: 29/05/21 , initialize new activity
+        startActivity(Intent(this, TrackDetailActivity::class.java).also {
+            it.putExtra("TRACK_DETAIL", trackView)
+        })
     }
 
     private fun onStateChanged(homeViewState: HomeViewState) {

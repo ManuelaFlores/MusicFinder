@@ -8,13 +8,14 @@
     android:background="@drawable/background_shape"
     android:elevation="2dp">
 
-    <View
-        android:id="@+id/imageView"
+    <ImageView
+        android:id="@+id/trackImageView"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        android:scaleType="centerCrop"
         android:background="@drawable/shape_view"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,8 +31,8 @@
         android:maxLines="2"
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toStartOf="@+id/trackDurationTextView"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/trackImageView"
+        app:layout_constraintTop_toTopOf="@+id/trackImageView"
         tools:text="Una larga canción" />
 
     <androidx.appcompat.widget.AppCompatTextView

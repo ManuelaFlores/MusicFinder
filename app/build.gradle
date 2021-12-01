@@ -39,10 +39,6 @@ dependencies {
     implementation Dependencies.android_core
     implementation Dependencies.app_compat
     implementation Dependencies.constraint_layout
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     androidTestImplementation Dependencies.junit_androidx
     androidTestImplementation Dependencies.espresso_androidx
     implementation Dependencies.material_design
@@ -58,4 +54,7 @@ dependencies {
     implementation Dependencies.koin_scope
     implementation Dependencies.koin_viewmodel
     implementation Dependencies.koin_fragment
+
+    implementation Dependencies.coil
+    implementation Dependencies.exoPlayer
 }

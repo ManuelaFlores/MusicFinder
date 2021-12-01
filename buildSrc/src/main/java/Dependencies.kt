@@ -22,6 +22,8 @@ object Versions {
     const val firebase_analytics = "18.0.2"
     const val firebase_core = "18.0.2"
     const val firebase_database = "19.6.0"
+    const val coil_version = "1.2.1"
+    const val exoPlayer = "2.14.0"
 }
 
 object Dependencies {
@@ -63,6 +65,9 @@ object Dependencies {
     val firebase_core = "com.google.firebase:firebase-core:${Versions.firebase_core}"
     val firebase_database =
         "com.google.firebase:firebase-database-ktx:${Versions.firebase_database}"
+
+    val coil = "io.coil-kt:coil:${Versions.coil_version}"
+    val exoPlayer = "com.google.android.exoplayer:exoplayer:${Versions.exoPlayer}"
 
 }
 
