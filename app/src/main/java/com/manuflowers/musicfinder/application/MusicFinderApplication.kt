@@ -13,8 +13,8 @@ class MusicFinderApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
+            androidLogger()
             androidContext(this@MusicFinderApplication)
-           // if (BuildConfig.DEBUG) androidLogger(Level.DEBUG)
             modules(dataModules + domainModules + presentationModule)
         }
     }
