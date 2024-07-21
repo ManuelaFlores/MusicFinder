@@ -1,23 +1,21 @@
 package com.manuflowers.musicfinder.ui.home.list
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.manuflowers.musicfinder.R
+import com.manuflowers.musicfinder.databinding.HomeViewHolderBinding
 import com.manuflowers.musicfinder.ui.home.model.TrackView
-import kotlinx.android.synthetic.main.home_view_holder.view.*
 
-class HomeViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+class HomeViewHolder(private val view: HomeViewHolderBinding) : RecyclerView.ViewHolder(view.root) {
 
     companion object {
+
         fun newInstance(parent: ViewGroup): HomeViewHolder {
-            return HomeViewHolder(
-                LayoutInflater.from(parent.context)
-                    .inflate(R.layout.home_view_holder, parent, false)
-            )
+            val itemBinding = HomeViewHolderBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            return HomeViewHolder(itemBinding)
         }
     }
 
@@ -26,11 +24,10 @@ class HomeViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         itemView.setOnClickListener {
             onClickListener.invoke(trackView)
         }
-
-        itemView.trackNameTextView.text = trackView.trackName
-        itemView.authorTrackTextView.text = trackView.artistName
-        itemView.trackDurationTextView.text = trackView.trackDuration
-        itemView.trackImageView.load(trackView.trackImage) {
+        view.trackNameTextView.text = trackView.trackName
+        view.authorTrackTextView.text = trackView.artistName
+        view.trackDurationTextView.text = trackView.trackDuration
+        view.trackImageView.load(trackView.trackImage) {
             placeholder(R.drawable.shape_view)
             transformations(RoundedCornersTransformation(10F))
         }

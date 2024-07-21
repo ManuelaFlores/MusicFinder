@@ -1,5 +1,5 @@
 object Versions {
-    const val kotlin = "1.4.31"
+    const val kotlin = "1.9.10"
     const val koin = "2.2.2"
     const val android_core = "1.3.2"
     const val app_compat = "1.2.0"

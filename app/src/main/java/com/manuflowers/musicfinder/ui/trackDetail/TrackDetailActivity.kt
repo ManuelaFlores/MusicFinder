@@ -11,11 +11,13 @@ import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.util.Util
 import com.manuflowers.musicfinder.R
+import com.manuflowers.musicfinder.databinding.ActivityTrackDetailBinding
 import com.manuflowers.musicfinder.ui.home.model.TrackView
-import kotlinx.android.synthetic.main.activity_track_detail.*
 
 
 class TrackDetailActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityTrackDetailBinding
 
     private val trackView: TrackView? by lazy {
         intent.getParcelableExtra("TRACK_DETAIL") as TrackView?
@@ -25,7 +27,9 @@ class TrackDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_track_detail)
+        binding = ActivityTrackDetailBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         getIntentValues()
         initializePlayer()
     }
@@ -33,11 +37,13 @@ class TrackDetailActivity : AppCompatActivity() {
     private fun getIntentValues() {
         trackView?.let {
             Log.e("TRACK_PASSED", "$it")
-            trackNameTextView.text = it.trackName
-            authorTrackTextView.text = it.artistName
-            trackAlbumImageView.load(it.trackImage) {
-                placeholder(R.drawable.shape_view)
-                transformations(CircleCropTransformation())
+            binding.run {
+                trackNameTextView.text = it.trackName
+                authorTrackTextView.text = it.artistName
+                trackAlbumImageView.load(it.trackImage) {
+                    placeholder(R.drawable.shape_view)
+                    transformations(CircleCropTransformation())
+                }
             }
         }
     }
