@@ -1,1 +1,1 @@
-/Users/manuela/AndroidStudioProjects/MusicFinder/buildSrc/build/classes/kotlin/main/Config.class:/Users/manuela/AndroidStudioProjects/MusicFinder/buildSrc/build/classes/kotlin/main/Dependencies.class:/Users/manuela/AndroidStudioProjects/MusicFinder/buildSrc/build/classes/kotlin/main/Versions.class
+/Users/manuela/AndroidStudioProjects/MusicFinder/buildSrc/build/classes/kotlin/main/AppConfig.class

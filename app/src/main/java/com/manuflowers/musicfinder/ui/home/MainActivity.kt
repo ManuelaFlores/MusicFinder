@@ -10,17 +10,19 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.manuflowers.musicfinder.R
+import com.manuflowers.musicfinder.databinding.ActivityMainBinding
 import com.manuflowers.musicfinder.ui.home.list.HomeAdapter
 import com.manuflowers.musicfinder.ui.home.model.HomeViewState
 import com.manuflowers.musicfinder.ui.home.model.TrackView
 import com.manuflowers.musicfinder.ui.home.viewModel.HomeViewModel
 import com.manuflowers.musicfinder.ui.trackDetail.TrackDetailActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 
     private val homeViewModel: HomeViewModel by inject()
+
+    private lateinit var binding: ActivityMainBinding
 
     private val homeAdapter by lazy {
         HomeAdapter(::onClickListener)
@@ -28,8 +30,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        homeRecyclerView.adapter = homeAdapter
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        binding.homeRecyclerView.adapter = homeAdapter
         homeViewModel.getSearchResults("")
         observeOnErrorEvent()
         observeState(::onStateChanged)
@@ -37,12 +41,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupSearch() {
-        searchEditText.addTextChangedListener(object : TextWatcher {
+        binding.searchEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -64,9 +67,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         homeViewState.isLoading.consume()?.let {
-            loadingLayout.isVisible = it
-            if (!it) {
-                emptyLayout.isVisible = homeViewState.searchResults.isEmpty()
+            binding.run {
+                loadingLayout.root.isVisible = it
+                if (!it) {
+                    emptyLayout.root.isVisible = homeViewState.searchResults.isEmpty()
+                }
             }
         }
 
