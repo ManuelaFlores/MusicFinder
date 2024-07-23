@@ -56,6 +56,4 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.coil)
     implementation(libs.exoplayer)
-    // testImplementation Dependencies.mokk
-    //testImplementation Dependencies.coroutines_test
 }

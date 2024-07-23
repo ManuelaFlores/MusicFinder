@@ -1,9 +1,7 @@
 package com.manuflowers.musicfinder.ui.trackDetail
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import coil.transform.CircleCropTransformation

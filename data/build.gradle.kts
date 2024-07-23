@@ -39,9 +39,5 @@ dependencies {
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
 
-    //implementation Dependencies.firebase_analytics
-   // implementation Dependencies.firebase_core
-   // implementation Dependencies.firebase_database
-
     implementation(libs.koin.android)
 }
