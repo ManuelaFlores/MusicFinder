@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.manuflowers.musicfinder"
-    compileSdk = 34
+    compileSdk = AppConfig.compileSdk
 
     defaultConfig {
         applicationId = "com.manuflowers.musicfinder"
-        minSdk = 24
-        targetSdk = 34
+        minSdk = AppConfig.minSdk
+        targetSdk = AppConfig.targetSdk
         versionCode = 1
         versionName = "1.0"
 
@@ -33,7 +33,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = AppConfig.javaVersion
     }
 }
 
