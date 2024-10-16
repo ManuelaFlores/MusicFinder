@@ -23,3 +23,4 @@ rootProject.name = "Music Finder"
 include(":app")
 include(":data")
 include(":domain")
+include(":ui-core")
