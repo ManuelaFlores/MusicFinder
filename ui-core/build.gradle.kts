@@ -1,26 +1,21 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.jetbrains.kotlin.parcelize)
     alias(libs.plugins.compose.compiler)
 }
 
 android {
-    namespace = "com.manuflowers.musicfinder"
-    compileSdk = AppConfig.compileSdk
+    namespace = "com.manuflowers.uicore"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.manuflowers.musicfinder"
-        minSdk = AppConfig.minSdk
-        targetSdk = AppConfig.targetSdk
+        applicationId = "com.manuflowers.uicore"
+        minSdk = 24
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildFeatures {
-        viewBinding =  true
     }
 
     buildTypes {
@@ -30,24 +25,15 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = AppConfig.javaVersion
-    }
-
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
+        jvmTarget = "11"
     }
 }
 
 dependencies {
-
-    implementation(project(":domain"))
-    implementation(project (":data"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -61,10 +47,4 @@ dependencies {
     implementation(libs.compose.runtime)
     implementation(libs.compose.ui)
     implementation(libs.androidx.material3)
-
-    implementation(libs.coroutines.core)
-    implementation(libs.coroutines.android)
-    implementation(libs.koin.android)
-    implementation(libs.coil)
-    implementation(libs.exoplayer)
 }
